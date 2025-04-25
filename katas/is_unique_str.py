@@ -1,14 +1,9 @@
 def is_unique(string):
-    """
-    Checks if a string has all unique characters (case-insensitive).
+        for char in string:
+            if string.count(char) > 1:
+                return False
 
-    Args:
-        string: the input string
-
-    Returns:
-        True if all characters are unique, False otherwise
-    """
-    return True
+        return True
 
 
 if __name__ == '__main__':
