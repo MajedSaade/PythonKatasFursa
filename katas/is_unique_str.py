@@ -1,10 +1,10 @@
 def is_unique(string):
+
         for char in string:
             if string.count(char) > 1:
                 return False
 
         return True
-"to change"
 
 
 if __name__ == '__main__':
