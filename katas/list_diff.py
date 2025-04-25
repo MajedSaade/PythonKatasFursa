@@ -1,6 +1,6 @@
 def find_difference(numbers):
     """
-    Finds the difference between the largest and smallest numbers in the list.
+    Finds the difference between the largest and smallest numbers in the list .
 
     Args:
         numbers: the list of integers
@@ -8,13 +8,13 @@ def find_difference(numbers):
     Returns:
         the difference between the largest and smallest numbers
     """
-    max = 0
-    min = 0
+    max = numbers[0]
+    min = numbers[0]
     for i in numbers :
         if max < i :
             max = i
 
-    for j in numbers :
+    for j in numbers:
         if min > j :
             min = j
 

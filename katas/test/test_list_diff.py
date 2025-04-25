@@ -3,7 +3,7 @@ import unittest
 
 def find_difference(numbers):
     """
-    Finds the difference between the largest and smallest numbers in the list.
+    Finds the difference between the largest and smallest numbers in the list .
 
     Args:
         numbers: the list of integers
@@ -11,8 +11,8 @@ def find_difference(numbers):
     Returns:
         the difference between the largest and smallest numbers
     """
-    max_num = 0
-    min_num = 0
+    max_num = numbers[0]
+    min_num = numbers[0]
     for i in numbers:
         if max_num < i:
             max_num = i
