@@ -1,6 +1,5 @@
 import unittest
 
-
 def is_unique(string):
     for char in string:
         if string.count(char) > 1:
