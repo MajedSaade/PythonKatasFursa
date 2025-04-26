@@ -1,3 +1,6 @@
+from pyparsing import nestedExpr
+
+
 def flatten_list(nested_list):
     """
     Flattens a nested list into a single list of integers.
@@ -9,7 +12,15 @@ def flatten_list(nested_list):
         a flat list containing all integers from the nested structure
     """
     # hint: isinstance()
-    return []
+
+    res = []
+    for i in nested_list  :
+        if isinstance(i, list):
+            res.extend(flatten_list(i))
+        else:
+            res.append(i)
+
+    return res
 
 
 if __name__ == '__main__':
