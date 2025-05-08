@@ -7,6 +7,14 @@ It refers to a detailed choreographed pattern of martial arts movements made to 
 
 ## Getting started
 
+> [!NOTE]
+> To pull the new katas that don't exist in your fork, execute the following **from branch `main`**:
+> 
+> ```bash 
+> git remote add upstream https://github.com/alonitac/PythonKatasFursa.git 2>/dev/null
+> git pull upstream main
+> ```
+
 1. **Fork** this repo, clone your forked repo and open in your preferred IDE (e.g. PyCharm).
 2. Answer the exercises under `katas/`.
 3. Write a corresponding unittest in `katas/test/`. The unittest test class must be named as `test_[name of kata].java`.
