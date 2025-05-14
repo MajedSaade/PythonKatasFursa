@@ -12,7 +12,42 @@ def is_valid_git_tree(tree_map):
     Returns:
         True if the tree is a valid Git tree, False otherwise
     """
-    return False
+    parent_map = {}
+    for node, children in tree_map.items():
+        if node not in parent_map:
+            parent_map[node] = []
+
+        for child in children:
+            if child not in parent_map:
+                parent_map[child] = [node]
+            else:
+                parent_map[child].append(node)
+
+    roots = [node for node, parents in parent_map.items() if not parents]
+    if len(roots) != 1:
+        return False
+
+    visited = set()
+    in_current_path = set()
+
+    def has_cycle(node):
+        if node in in_current_path:
+            return True
+
+        if node in visited:
+            return False
+
+        visited.add(node)
+        in_current_path.add(node)
+
+        for child in tree_map.get(node, []):
+            if has_cycle(child):
+                return True
+
+        in_current_path.remove(node)
+        return False
+
+    return not has_cycle(roots[0])
 
 
 if __name__ == '__main__':

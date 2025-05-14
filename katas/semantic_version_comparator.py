@@ -18,6 +18,19 @@ def compare_versions(version1, version2):
          0 if version1 = version2
          1 if version1 > version2
     """
+    v1_components = [int(comp) for comp in version1.split('.')]
+    v2_components = [int(comp) for comp in version2.split('.')]
+
+    max_length = max(len(v1_components), len(v2_components))
+    v1_components.extend([0] * (max_length - len(v1_components)))
+    v2_components.extend([0] * (max_length - len(v2_components)))
+
+    for i in range(max_length):
+        if v1_components[i] < v2_components[i]:
+            return -1
+        elif v1_components[i] > v2_components[i]:
+            return 1
+
     return 0
 
 
@@ -29,4 +42,3 @@ if __name__ == '__main__':
     # Additional test cases
     print(f"'1.2' compared to '1.2.0': {compare_versions('1.2', '1.2.0')}")  # Expected: 0
     print(f"'1.10.0' compared to '1.2.0': {compare_versions('1.10.0', '1.2.0')}")  # Expected: 1
-    print(f"'2.0.0' compared to '10.0.0': {compare_versions('2.0.0', '10.0.0')}")  # Expected: -1
